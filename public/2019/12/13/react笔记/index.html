@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="30 React JSX 组件化 React开发模式 生命周期 默认端口3000  react代码保存格式化 标签莫名错误格式化 点击右下角的javaScript， 在弹出的选择框中， 输入选择JavascriptReact或者TypescriptReact   jsx的本质123456789101112131415jsx的写法  ： babel左了转换class HelloMessage ext">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;react%E7%AC%94%E8%AE%B0&#x2F;index.html">
+<meta property="og:site_name" content="OnePiece">
+<meta property="og:description" content="30 React JSX 组件化 React开发模式 生命周期 默认端口3000  react代码保存格式化 标签莫名错误格式化 点击右下角的javaScript， 在弹出的选择框中， 输入选择JavascriptReact或者TypescriptReact   jsx的本质123456789101112131415jsx的写法  ： babel左了转换class HelloMessage ext">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-12T16:25:25.000Z">
+<meta property="article:modified_time" content="2019-12-12T17:44:52.742Z">
+<meta property="article:author" content="ccb">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/13/react%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>react笔记 | OnePiece</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">OnePiece</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/react%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ccb">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OnePiece">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          react笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-13 00:25:25 / Modified: 01:44:52" itemprop="dateCreated datePublished" datetime="2019-12-13T00:25:25+08:00">2019-12-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="30-React-JSX-组件化-React开发模式-生命周期"><a href="#30-React-JSX-组件化-React开发模式-生命周期" class="headerlink" title="30 React JSX 组件化 React开发模式 生命周期"></a>30 React JSX 组件化 React开发模式 生命周期</h1><ul>
+<li><p>默认端口3000</p>
+</li>
+<li><p>react代码保存格式化 标签莫名错误格式化</p>
+<p>点击右下角的javaScript， 在弹出的选择框中， 输入选择JavascriptReact或者TypescriptReact</p>
+</li>
+</ul>
+<h2 id="jsx的本质"><a href="#jsx的本质" class="headerlink" title="jsx的本质"></a>jsx的本质</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">jsx的写法  ： babel左了转换</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div id=<span class="string">'name'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">'red'</span>&gt;</span><br><span class="line">        Hello &#123;<span class="keyword">this</span>.props.name&#125; &#123;<span class="keyword">this</span>.props.age&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">  &lt;HelloMessage name="Taylor" /</span>&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">非jsx的写法</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(</span><br><span class="line">      <span class="string">'div'</span>,   <span class="comment">// 标签</span></span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="string">'name'</span>, <span class="string">'class'</span>: <span class="string">'red'</span> &#125;,  <span class="comment">// 属性</span></span><br><span class="line">      <span class="string">'Hello '</span>,     <span class="comment">// 内容</span></span><br><span class="line">      <span class="keyword">this</span>.props.name,</span><br><span class="line">      <span class="string">' '</span>,</span><br><span class="line">      <span class="keyword">this</span>.props.age</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(React.createElement(HelloMessage, &#123; <span class="attr">name</span>: <span class="string">'Taylor'</span> &#125;), <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>前端框架使用成员好像一律都用this, 不存在之前c#那样可以直接成员变量的</li>
+<li><strong>在构造函数中初始化数据成员白能量，类外部没有数据成员变量，可以有函数成员变量</strong>，，es6 class应该就是这样，  ts中好像可以先声明成员变量，构造函数中初始化  todo</li>
+</ul>
+<h2 id="react双向数据绑定及事件this的写法"><a href="#react双向数据绑定及事件this的写法" class="headerlink" title="react双向数据绑定及事件this的写法"></a>react双向数据绑定及事件this的写法</h2><ul>
+<li>react是单向数据流，需要实现onChange事件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;  <span class="comment">// &#123;&#125;类似vue的&#123;&#123;&#125;&#125;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line">                &lt;input type="text" value=&#123;this.state.text&#125; onChange=&#123;</span><br><span class="line">                    (e)=&gt;&#123;</span><br><span class="line">                    // console.log(e)</span><br><span class="line">                    // this.setState(&#123;</span><br><span class="line">                    //     text:e.target.value    // 手动双向数据绑定 ,,MV是默认的，需要实现VM</span><br><span class="line">                    // &#125;)</span><br><span class="line">                     this.vmHandler(e)  // 内层的话 必须传递e,, 自定义参数时也可以使用嵌套函数的方式传递参数，外层的参数是事件调用时默认会传递event</span><br><span class="line">                    &#125;</span><br><span class="line">                   </span><br><span class="line">                   //this.vmHandler2   // 方式二</span><br><span class="line">                   </span><br><span class="line">                   </span><br><span class="line">                &#125;/&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml">    </span></span><br><span class="line"><span class="xml">    </span></span><br><span class="line"><span class="xml">    </span></span><br><span class="line"><span class="xml">   vmHandler(e)&#123;</span></span><br><span class="line"><span class="xml">        // console.log(e);    </span></span><br><span class="line"><span class="xml">        // console.log(this)</span></span><br><span class="line"><span class="xml">        this.setState(&#123;</span></span><br><span class="line"><span class="xml">            text:e.target.value    // 手动双向数据绑定 ,,MV是默认的，需要实现VM</span></span><br><span class="line"><span class="xml">        &#125;)</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="xml">    vmHandler2=(e)=&gt;&#123;   // 如果写e,会获取到event   方式二</span></span><br><span class="line"><span class="xml">         console.log(e);    </span></span><br><span class="line"><span class="xml">        // console.log(this)</span></span><br><span class="line"><span class="xml">        this.setState(&#123;</span></span><br><span class="line"><span class="xml">            text:e.target.value    // 手动双向数据绑定 ,,MV是默认的，需要实现VM</span></span><br><span class="line"><span class="xml">        &#125;)</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>react里this</strong>用的很多，模板和脚本在一起，模板里的变量也得带this,, 事件的话最好用（）=&gt;{this.method},箭头函数的this就是组件，传递event的话，加上（e）=&gt;{}即可。</p>
+<ul>
+<li><p>其他调用方式： 方法简单的话，可以直接在render里写方法体</p>
+<p>方式二： 事件{}中 直接写方法名，此<strong>时该方法是别人调用的</strong>，this不代表当前组件了， 但方法中使用this时，方法也要用箭头函数保留this指向</p>
+<p>分析：如果是放在了箭头函数中 调用this.method()，则method中的this肯定就是定义时的上下文this，代表当前组件, 否则的话需要注意method函数体中的this指向；   事件绑定机制的处理造成了event的传递，this的问题；  暂时就用箭头函数把  需要使用定义时的this 上下文保留；  之前vue模板中绑定的数据变量/事件中的变量都不用写this，，应该是框架处理机制的不同，vue只是解析得到方法名或变量名，不需要this,  react render里是要后面直接按变量用的</p>
+<p>方式三： <strong>在构造函数中绑定函数的this指向，因为肯定先经过构造函数，通过bind绑定的函数的this指向不再变</strong></p>
+<p> this.vmHandler = this.vmHandler .bind(this)，， 此种方式也可以在onChange中直接用bind(this)，不过那样每次render都要bind,性能不好</p>
+</li>
+<li><p><strong>注意react事件里，不要写函数执行的方式</strong>，，那样会执行再赋值，事件是无效的，这和html中好像不一样</p>
+</li>
+</ul>
+</li>
+<li><p>react标签没有子元素，可以用单标签</p>
+</li>
+<li><p>单向数据流的优点：： 防止bug,, js中有些数据是会互相影响的（引用类型？），，每次修改数据都setState, 都使用新的数据，不会有这种问题</p>
+</li>
+</ul>
+<h2 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h2><ul>
+<li>适用于局部  返回一个简单的小片段组件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数组件： 如果一个组件只是根据props进行渲染，没有内部的state,可以用函数形式代替（hook 函数发展方向）</span></span><br><span class="line"> </span><br><span class="line">app.js</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Title</span>(<span class="params">&#123;title&#125;</span>)</span>&#123;   <span class="comment">// 参数解构赋值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;title&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">index.js</span><br><span class="line">ReactDom.render(  <span class="comment">// render 中组件的标签名起始大写</span></span><br><span class="line">    &lt;Title title=<span class="string">'我是函数组件'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">Title</span>&gt;</span></span>,   <span class="comment">// 函数组件，仅依赖props，不需要state时可以使用</span></span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#root'</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-------------------------------</span><br><span class="line">   cart.js  总价 </span><br><span class="line"> <span class="comment">// 函数组件：  返回商品总价，  react没有计算属性，直接把计算逻辑写在模板里，，类似的小片段可用函数组件实现，，参数接收的是props</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Total</span>(<span class="params">&#123;cart&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>总价：&#123;cart.reduce((sum,a)=&gt;&#123;</span></span><br><span class="line"><span class="xml">        return sum+=a.price * a.count;</span></span><br><span class="line"><span class="xml">    &#125;, 0)&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"> &lt;tfoot&gt;</span><br><span class="line">                    &lt;Total cart=&#123;<span class="keyword">this</span>.props.data&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">Total</span>&gt;</span></span></span><br><span class="line">                &lt;<span class="regexp">/tfoot&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-React-JSX-组件化-React开发模式-生命周期"><a href="#31-React-JSX-组件化-React开发模式-生命周期" class="headerlink" title="31 React JSX 组件化 React开发模式 生命周期"></a>31 React JSX 组件化 React开发模式 生命周期</h1><h1 id="按需加载插件"><a href="#按需加载插件" class="headerlink" title="按需加载插件"></a>按需加载插件</h1><ul>
+<li><p><strong>babel-plugin-import</strong>  按需加载插件 ， 一般框架都会用到</p>
+<ul>
+<li><p>react 通过  config-overrides.js扩展配置插件  （webpack层面），，可以看下源码</p>
+</li>
+<li><p>配置antd按需引入： <a href="https://ant.design/docs/react/use-with-create-react-app-cn" target="_blank" rel="noopener">https://ant.design/docs/react/use-with-create-react-app-cn</a></p>
+</li>
+<li><p>配置装饰器（babel7.0）:<a href="https://blog.csdn.net/hl971115/article/details/93314824" target="_blank" rel="noopener">https://blog.csdn.net/hl971115/article/details/93314824</a></p>
+</li>
+<li><p>注意一定要按步骤，  customize-cra装这个时遇到问题了，干脆都删掉，先装的这个</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件拆分-，嵌套"><a href="#组件拆分-，嵌套" class="headerlink" title="组件拆分 ，嵌套"></a>组件拆分 ，<strong>嵌套</strong></h2><ul>
+<li>组件可以按<strong>行为和展示</strong>进行拆分，， 组件render时render另外一个组件，组件按组件<strong>类名作为标签</strong>进行使用； 解耦/复用/易于测试</li>
+<li>体会一下本质，， <strong>递归</strong>实现</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">jsx语法</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Hello name=<span class="string">"ccb"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">Hello</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        Hello &#123;<span class="keyword">this</span>.props.name&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">  &lt;HelloMessage name="Taylor" /</span>&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">非jsx语法</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(Hello, &#123; <span class="attr">name</span>: <span class="string">"ccb"</span> &#125;); <span class="comment">//发现Hello是组件标签，则会按Hello的render去React.createElement，，递归</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(</span><br><span class="line">      <span class="string">"div"</span>,</span><br><span class="line">      <span class="literal">null</span>,</span><br><span class="line">      <span class="string">"Hello "</span>,</span><br><span class="line">      <span class="keyword">this</span>.props.name</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(React.createElement(HelloMessage, &#123; <span class="attr">name</span>: <span class="string">"Taylor"</span> &#125;), <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="react三点运算符"><a href="#react三点运算符" class="headerlink" title="react三点运算符"></a>react三点运算符</h2><ul>
+<li>&lt;Component {…props}/&gt;   <ul>
+<li><strong>react中的语法糖</strong>   等价于  <Component  title='kkb' name='ccb'/>   ;; </li>
+<li>es6中 {…props}  等价于复制一份props, 而且数据不会相互影响，， 常用于给对象增加属性， 如  var obj = {…props, ‘foo’:’bar’}  ,,  这里的…  展开的效果是 key:value的形式</li>
+<li>… 运算符一般是用于数组较多，，还有一种用于形参（叫剩余运算符）</li>
+</ul>
+</li>
+<li>&lt;Component {…this.props}/&gt;  <ul>
+<li>这个是用于类组件中</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h2><ul>
+<li><p>还没正式发布，需要安装测试版本</p>
+<p>npm install <a href="mailto:react@16.7.0-alpha">react@16.7.0-alpha</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/lalalagq/p/9901451.html" target="_blank" rel="noopener">从Mixin到hooks，谈谈对React16.7.0-alpha中即将引入的hooks的理解</a></p>
+</li>
+</ul>
+<h1 id="32课-Redux单向数据流-React-router4单页应用"><a href="#32课-Redux单向数据流-React-router4单页应用" class="headerlink" title="32课 Redux单向数据流 React-router4单页应用"></a>32课 Redux单向数据流 React-router4单页应用</h1><ul>
+<li>上节作业 createContext的实现（见该节pdf），体会下闭包</li>
+</ul>
+<h2 id="箭头函数return的简写形式"><a href="#箭头函数return的简写形式" class="headerlink" title="箭头函数return的简写形式"></a>箭头函数return的简写形式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> 一般写法 （）&#x3D;&gt;&#123;&#125;,,参数只有一个时可以省略（）， 函数体只有一句话时可以省略&#123;&#125;，且默认是return的</span><br><span class="line"> const mapStatetoProps &#x3D; state&#x3D;&gt;&#123;  </span><br><span class="line">     return &#123;num: state&#125;    &#x2F;&#x2F; &#123;&#125;中要明确写上是否return，不会默认return</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;可以简写为： 当return的是&#123;&#125;包裹的对象时，加上（）代表一个整体 return</span><br><span class="line">const mapStatetoPropsstate&#x3D;&gt;(&#123;num: state&#125;)，，因为后面直接return数据时可以不用&#123;&#125;，但是return的是对象，所以用（）包裹，不用写return</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="vuex-redux-修改数据对比（单向数据流）"><a href="#vuex-redux-修改数据对比（单向数据流）" class="headerlink" title="vuex redux 修改数据对比（单向数据流）"></a>vuex redux 修改数据对比（单向数据流）</h2><ul>
+<li><p>单向数据流： 修改数据时是一份新的数据，比如 给state  增加name属性redux的写法  {…state, name:’ccb’}，相当于复制原来的state给新的state再添加属性，</p>
+<ul>
+<li>{…state, name:’ccb’}  相当于 <strong>Object.assign</strong>({},state,{name:’ccb’})</li>
+</ul>
+</li>
+<li><p>vuex的写法的就state.name=‘ccb’  // state还是原来的state</p>
+</li>
+</ul>
+<h2 id="redux-logger"><a href="#redux-logger" class="headerlink" title="redux-logger"></a>redux-logger</h2><ul>
+<li>F12会记录每次dispatch的action</li>
+</ul>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
+<li>HashRouter和BrowserRouter 相当于vue是否使用model:history</li>
+</ul>
+<ul>
+<li>最后半小时原理 todo</li>
+</ul>
+<h1 id="33-Redux单向数据流-React-router4单页应用"><a href="#33-Redux单向数据流-React-router4单页应用" class="headerlink" title="33 Redux单向数据流 React-router4单页应用"></a>33 Redux单向数据流 React-router4单页应用</h1><h2 id="umi"><a href="#umi" class="headerlink" title="umi"></a>umi</h2><ul>
+<li><p>单页应用</p>
+</li>
+<li><p>安装后，package.json启动脚本修改为umi</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">        "start": "umi dev",</span><br><span class="line">        "build": "umi build",</span><br><span class="line">        "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>antd  layout <strong>this.props.children</strong></p>
+<ul>
+<li>联系render-props对比下</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KLayout</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Layout</span>&gt;</span></span></span><br><span class="line">            &lt;Sider&gt;</span><br><span class="line">                侧边栏</span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">Sider</span>&gt;</span></span></span><br><span class="line">            &lt;Layout&gt;</span><br><span class="line">                &lt;Header&gt;头部信息&lt;/Header&gt;</span><br><span class="line">                &lt;Content&gt;</span><br><span class="line">                    &#123;this.props.children&#125;   // 外界使用Klayout，Klayout中的节点，相当于vue中的slot，，layout是最外层的路由</span><br><span class="line">                &lt;/Content&gt;</span><br><span class="line">                &lt;Footer&gt;&#123;this.props.children&#125;&lt;/Footer&gt;</span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">Layout</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">Layout</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>umi 命令创建页面</p>
+<p>npm  i -g umi 需要全局安装</p>
+<p><strong>项目路径下 npm  g page login</strong>  自动生成login.js 和login.css</p>
+</li>
+<li><p>支持less   ，，sass需要loader ？</p>
+</li>
+</ul>
+<h2 id="dva"><a href="#dva" class="headerlink" title="dva"></a>dva</h2><ul>
+<li>model中多个数据用<strong>命名空间</strong>区分  todo</li>
+<li><strong>dva connect 会默认提供dispatch ,  this.props.dispatch,,   数据的话可以自己映射</strong>； <strong>dva默认映射dispatch到props, 直接使用dispatch调用想用namespace/reducer</strong>，，不需要单独映射</li>
+</ul>
+<h1 id="34-react-项目实战"><a href="#34-react-项目实战" class="headerlink" title="34 react 项目实战"></a>34 react 项目实战</h1><ul>
+<li><p>component文件夹放可以复用的组件， pages放的是业务页面， layout是布局</p>
+<p>和vue中component和views文件夹的意义差不多</p>
+</li>
+<li><p><strong>进度条</strong>npm  install nprogress –save</p>
+</li>
+<li><p>手写promise   vue原理  vue组件设计   react 原理  react组件设计  redux原理   vue/react区别</p>
+</li>
+</ul>
+<h1 id="35-react-项目实战"><a href="#35-react-项目实战" class="headerlink" title="35 react 项目实战"></a>35 react 项目实战</h1><ul>
+<li>拦截器  全局文件执行</li>
+<li>多model </li>
+<li>异步effects  generator</li>
+<li>umi/router     js路由跳转  router.push</li>
+<li>进度条设置在拦截器中  请求时开始和响应时结束，， 有个微交互的过程</li>
+<li>ant  design pro   === vue  admin  适合做cms</li>
+<li>ant  design pro      <strong>exception</strong>处理</li>
+<li>ant pro   tag   栅格系统  flex布局  card</li>
+<li>作业： 主页默认加载全部商品：<strong>使用 componentWillReceiveProps，，组件dispatch后，props会传递变更的数据</strong></li>
+</ul>
+<h1 id="36-react-项目实战"><a href="#36-react-项目实战" class="headerlink" title="36 react 项目实战"></a>36 react 项目实战</h1><ul>
+<li>antd Skeleton  骨架屏</li>
+<li>react请求数据一般放componentDidMount里， 加上初次render, 要render两次</li>
+<li>KHeader： antd-pro  <strong>noticeIcon</strong>做<strong>购物车</strong></li>
+<li>登录状态的逻辑， 某些业务逻辑需要登录的状态下， 比如购物时需要校验token, 未登录跳转到登录页或显示登录按钮，已经登录显示退出按钮等；； 首页可以不用登录， 但购买时需要登录</li>
+<li>react 动画<ul>
+<li>npm  i react-motion –save    跨平台   推荐；； about组件中 演示</li>
+<li>react-tran’sition-group</li>
+</ul>
+</li>
+<li>css属性如fontSize   <strong>html style中用驼峰</strong></li>
+</ul>
+<h1 id="37-源码"><a href="#37-源码" class="headerlink" title="37 源码"></a>37 源码</h1><ul>
+<li>vscode调试源码,,精简版源码</li>
+<li>createelement   domdiff  </li>
+<li>redux原理 react-redux原理 单向数据流  </li>
+<li>hook  函数组件管理state</li>
+<li>dva router原理</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag"># react</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/13/hello-world/" rel="prev" title="Hexo Hello World">
+      <i class="fa fa-chevron-left"></i> Hexo Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/13/hexo%E5%85%A5%E9%97%A8/" rel="next" title="hexo入门">
+      hexo入门 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#30-React-JSX-组件化-React开发模式-生命周期"><span class="nav-number">1.</span> <span class="nav-text">30 React JSX 组件化 React开发模式 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jsx的本质"><span class="nav-number">1.1.</span> <span class="nav-text">jsx的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react双向数据绑定及事件this的写法"><span class="nav-number">1.2.</span> <span class="nav-text">react双向数据绑定及事件this的写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数组件"><span class="nav-number">1.3.</span> <span class="nav-text">函数组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-React-JSX-组件化-React开发模式-生命周期"><span class="nav-number">2.</span> <span class="nav-text">31 React JSX 组件化 React开发模式 生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按需加载插件"><span class="nav-number">3.</span> <span class="nav-text">按需加载插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件拆分-，嵌套"><span class="nav-number">3.1.</span> <span class="nav-text">组件拆分 ，嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react三点运算符"><span class="nav-number">3.2.</span> <span class="nav-text">react三点运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hook"><span class="nav-number">3.3.</span> <span class="nav-text">hook</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32课-Redux单向数据流-React-router4单页应用"><span class="nav-number">4.</span> <span class="nav-text">32课 Redux单向数据流 React-router4单页应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数return的简写形式"><span class="nav-number">4.1.</span> <span class="nav-text">箭头函数return的简写形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex-redux-修改数据对比（单向数据流）"><span class="nav-number">4.2.</span> <span class="nav-text">vuex redux 修改数据对比（单向数据流）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redux-logger"><span class="nav-number">4.3.</span> <span class="nav-text">redux-logger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">4.4.</span> <span class="nav-text">路由</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#33-Redux单向数据流-React-router4单页应用"><span class="nav-number">5.</span> <span class="nav-text">33 Redux单向数据流 React-router4单页应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#umi"><span class="nav-number">5.1.</span> <span class="nav-text">umi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dva"><span class="nav-number">5.2.</span> <span class="nav-text">dva</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#34-react-项目实战"><span class="nav-number">6.</span> <span class="nav-text">34 react 项目实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-react-项目实战"><span class="nav-number">7.</span> <span class="nav-text">35 react 项目实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-react-项目实战"><span class="nav-number">8.</span> <span class="nav-text">36 react 项目实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#37-源码"><span class="nav-number">9.</span> <span class="nav-text">37 源码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ccb</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/alittlegit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;alittlegit" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ccb</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
